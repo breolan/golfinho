@@ -6,7 +6,6 @@ class NetworkMetric {
   final FlutterInternetSpeedTest _speedTest = FlutterInternetSpeedTest();
   final NetworkInfo _networkInfo = NetworkInfo();
 
-  // Método para medir la latencia (ping)
   Future<int?> getLatency(String ipAddress) async {
     try {
       final ping = Ping(ipAddress, count: 5);
@@ -24,7 +23,6 @@ class NetworkMetric {
     }
   }
 
-  // Método para medir la pérdida de paquetes
   Future<double?> getPacketLoss(String ipAddress) async {
     try {
       final ping = Ping(ipAddress, count: 5);
@@ -44,7 +42,6 @@ class NetworkMetric {
     }
   }
 
-  // Método para medir el ancho de banda (descarga y subida)
   Future<Map<String, double>> getBandwidth() async {
     double downloadSpeed = 0.0;
     double uploadSpeed = 0.0;
@@ -81,7 +78,6 @@ class NetworkMetric {
     };
   }
 
-  // Método para verificar la disponibilidad de la red (Wi-Fi o datos móviles)
   Future<bool> checkNetworkAvailability() async {
     try {
       String? wifiName = await _networkInfo.getWifiName();
@@ -92,7 +88,6 @@ class NetworkMetric {
     }
   }
 
-  // Método para obtener la dirección IP de la red local
   Future<String?> getLocalIpAddress() async {
     try {
       return await _networkInfo.getWifiIP();
@@ -102,7 +97,6 @@ class NetworkMetric {
     }
   }
 
-  // Método para obtener el nombre de la red Wi-Fi
   Future<String?> getWifiName() async {
     try {
       return await _networkInfo.getWifiName();

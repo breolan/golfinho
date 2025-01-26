@@ -32,7 +32,6 @@ class LoginScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 40),
-            // Campo de usuario
             TextField(
               controller: usernameController,
               decoration: InputDecoration(
@@ -47,7 +46,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            // Campo de contraseña
             TextField(
               controller: passwordController,
               obscureText: true,
@@ -63,7 +61,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            // Botón de login
             ElevatedButton(
               onPressed: () {
                 if (usernameController.text.isNotEmpty &&
@@ -88,23 +85,18 @@ class LoginScreen extends StatelessWidget {
               child: Text('Login', style: TextStyle(fontSize: 18)),
             ),
             SizedBox(height: 15),
-            // Enlace a la pantalla de registro
 
             SizedBox(height: 30),
-            // Texto "Or login with"
             Text(
               '------- Or login with -------',
               style: TextStyle(fontSize: 16, color: Colors.blue),
             ),
             SizedBox(height: 20),
-            // Botones circulares de Google y Facebook
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Botón de Google
                 GestureDetector(
                   onTap: () {
-                    // Agregar lógica para login con Google
                   },
                   child: Container(
                     width: 30, // Ancho del botón
@@ -122,10 +114,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 20),
-                // Botón de Facebook
                 GestureDetector(
                   onTap: () {
-                    // Agregar lógica para login con Facebook
                   },
                   child: Container(
                     width: 30, // Ancho del botón

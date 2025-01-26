@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:golfinho/models/network_metric.dart'; // Asegúrate de que esta es la ubicación correcta de tu clase NetworkMetric
+import 'package:golfinho/models/network_metric.dart';
 
 class MonitoringScreen extends StatefulWidget {
   @override
@@ -9,12 +9,12 @@ class MonitoringScreen extends StatefulWidget {
 class _MonitoringScreenState extends State<MonitoringScreen> {
   final NetworkMetric _networkMetric = NetworkMetric();
 
-  String speed = "Calculando...";
-  String latency = "Calculando...";
-  String packetLoss = "Calculando...";
-  String networkStatus = "Desconectado";
-  String localIp = "Calculando...";
-  String wifiName = "Calculando...";
+  String speed = "Calculating...";
+  String latency = "Calculating...";
+  String packetLoss = "Calculating...";
+  String networkStatus = "Disconnected";
+  String localIp = "Calculating...";
+  String wifiName = "Calculating...";
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
     final bandwidthData = await _networkMetric.getBandwidth();
 
     final isNetworkAvailable = await _networkMetric.checkNetworkAvailability();
-    final networkStatusText = isNetworkAvailable ? "Conectado" : "Desconectado";
+    final networkStatusText = isNetworkAvailable ? "Connected" : "Disconnected";
 
     final localIpData = await _networkMetric.getLocalIpAddress();
     final wifiNameData = await _networkMetric.getWifiName();
@@ -41,10 +41,10 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
           ? "${packetLossData.toStringAsFixed(2)}%"
           : "Error";
       speed =
-          "${bandwidthData['download']} Mbps de descarga, ${bandwidthData['upload']} Mbps de subida";
+          "${bandwidthData['download']} Mbps download, ${bandwidthData['upload']} Mbps upload";
       networkStatus = networkStatusText;
-      localIp = localIpData ?? "Error al obtener IP local";
-      wifiName = wifiNameData ?? "Error al obtener Wi-Fi";
+      localIp = localIpData ?? "Error getting local IP";
+      wifiName = wifiNameData ?? "Error getting Wi-Fi";
     });
   }
 

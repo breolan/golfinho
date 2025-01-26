@@ -29,26 +29,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text('Change Username'),
               trailing: Icon(Icons.edit),
               onTap: () {
-                // Acción para cambiar nombre de usuario
               },
             ),
             ListTile(
               title: Text('Change Email'),
               trailing: Icon(Icons.edit),
               onTap: () {
-                // Acción para cambiar correo electrónico
               },
             ),
             ListTile(
               title: Text('Change Password'),
               trailing: Icon(Icons.lock),
               onTap: () {
-                // Acción para cambiar contraseña
               },
             ),
             SizedBox(height: 20),
 
-            // Configuración de notificaciones
             SwitchListTile(
               title: Text('Enable Notifications'),
               value: isNotificationsEnabled,
@@ -62,7 +58,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Configuración de Blockchain
             SwitchListTile(
               title: Text('Enable Blockchain Logging'),
               value: blockchainEnabled,
@@ -76,7 +71,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Configuración de la frecuencia de actualización
             ListTile(
               title: Text('Update Frequency (minutes)'),
               trailing: DropdownButton<int>(
@@ -97,10 +91,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 30),
 
-            // Botón para guardar los cambios (si es necesario)
             ElevatedButton(
               onPressed: () {
-                // Aquí puedes implementar la lógica para guardar los cambios
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Settings saved successfully!')),
                 );
